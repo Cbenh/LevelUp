@@ -1,0 +1,71 @@
+<div class="nav-link" id="nav-link">
+	<ul>
+		<li class="li-link">
+			<p>
+				<%= link_to "DF", dareforget_path, :onmouseover => "changeContent('dareforget', 'DareForget')", :onmouseout => "changeContent('dareforget', 'DF')",:class => "a-dareforget", :id => "dareforget" %>
+				<%= link_to dareforget_path do %>
+				<%= image_tag("df-logo.png", :class => "logo_app", :onmouseover => "changeContent('dareforget', 'DareForget')", :onmouseout => "changeContent('dareforget', 'DF')") %>
+				<% end %>
+			</p>
+		</li>
+		<li class="li-link">
+			<p>
+				<%= link_to "FC", foodchain_path, :onmouseover => "changeContent('foodchain', 'FoodChain')", :onmouseout => "changeContent('foodchain', 'FC')",:class => "a-foodchain", :id => "foodchain" %>
+				<%= link_to foodchain_path do %>
+				<%= image_tag("fc-logo.png", :class => "logo_app", :onmouseover => "changeContent('foodchain', 'FoodChain')", :onmouseout => "changeContent('foodchain', 'FC')") %>
+				<% end %>
+
+			</p>
+		</li>
+		<li class="li-link">
+			<p>
+				<%= link_to "DP", dontpanic_path, :onmouseover => "changeContent('dontpanic', 'DontPanic')", :onmouseout => "changeContent('dontpanic', 'DP')",:class => "a-dontpanic", :id => "dontpanic" %>
+				<%= link_to dontpanic_path do %>
+				<%= image_tag("dp-logo.png", :class => "logo_app", :onmouseover => "changeContent('dontpanic', 'DontPanic')", :onmouseout => "changeContent('dontpanic', 'DP')") %>
+				<% end %>
+
+			</p>
+		</li>
+		<li class="li-link">
+			<p>
+				<%= link_to "SA", stillalive_path, :onmouseover => "changeContent('stillalive', 'StillAlive')", :onmouseout => "changeContent('stillalive', 'SA')",:class => "a-stillalive", :id => "stillalive" %>
+				<%= link_to stillalive_path do %>
+				<%= image_tag("sa-logo.png", :class => "logo_app", :onmouseover => "changeContent('stillalive', 'StillAlive')", :onmouseout => "changeContent('stillalive', 'SA')") %>
+				<% end %>
+
+			</p>
+		</li>
+	</ul>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		//When mouse roll over on menu icon
+		$(document.getElementsByClassName("li-link")).mouseover(function() {
+			//The below code is used to give animated effect to menu
+			$(this).stop().animate({
+				//Change the size of navigation menu to 152px
+				width : "152px",
+				//Time
+			}, 500);
+		});
+
+		//When mouse cursor removed from menu icon
+		$(document.getElementsByClassName("li-link")).mouseout(function() {
+
+			$(this).stop().animate({
+				//Back to normal width 52px
+				width : "52px",
+			}, 500);
+		});
+
+	}); 
+</script>
+<script type="text/javascript">
+	function changeContent(id, msg) {
+		var el = document.getElementById(id);
+		if (id) {
+			el.innerHTML = msg;
+		}
+	}
+</script>

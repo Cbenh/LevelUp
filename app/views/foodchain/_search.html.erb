@@ -1,0 +1,9 @@
+<div style="margin-left: 30%; margin-top: 2%;">
+	<h1>Rechercher une recette</h1>
+	<%= form_tag url_for(:controller => 'foodchain', :action => "search_recipe"), method: "get", html: { class: "form-horizontal" } do  %>
+	<%= text_field_tag :query, "", placeholder: "Recherche" %>
+	<%= submit_tag "Rechercher" %>
+	<% end %>
+	<%= link_to "Créer Une recette", creation_path %>
+	<%= link_to "Toutes les recettes", allrecipe_path %>
+</div>

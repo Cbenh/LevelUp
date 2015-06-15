@@ -1,0 +1,109 @@
+<div class="container-fluid">
+	<div id="board" style="margin-top: 5%;">
+		<h1>Mon planning</h1>
+		<div id="allrecipe">
+			<%= render "allRecipe_tab"%>
+		</div>
+		<div class="span12">
+			<div class="row">
+				<div class="span3">
+					<h3>Plus utilisées</h3>
+					<div id="recipe">
+						<% i = 0%>
+						<% @usedrecipes.each do |r| %>
+						<% i = i + 1  %>
+
+						<div id="recipe<%= i%>" draggable="true">
+							<%= link_to details_path(r.id), :toggle=> "tooltip", :id => r.name do %>
+							<div class="menuFc" title="<%= r.name %>">
+								<i class="icon-shopping-cart" ></i>
+							</div>
+							<%end%>
+						</div>
+						<% end %>
+					</div>
+
+				</div>
+				<div class="span3">
+					<h3>Mieux notées</h3>
+					<div id="recipe">
+						<% i = 10%>
+						<% @ratedrecipes.each do |r| %>
+						<% i = i + 1  %>
+						<div id="recipe<%= i%>" draggable="true">
+							<%= link_to details_path(r.id), :toggle=> "tooltip", :id => r.name do %>
+							<div class="menuFc" title="<%= r.name %>">
+								<i class="icon-shopping-cart" ></i>
+							</div>
+							<%end%>
+						</div>
+						<% end %>
+					</div>
+				</div>
+				<% if !@selected_meal.nil? %>
+				<div class="span3">
+					<h3>Menu à ajouter</h3>
+					<div id="recipe">
+						<div id="recipe39" draggable="true">
+							<%= link_to details_path(@selected_meal.id), :toggle=> "tooltip", :id => @selected_meal.name do %>
+							<div class="menuFc" title="<%= @selected_meal.name %>">
+								<i class="icon-shopping-cart" ></i>
+							</div>
+							<%end%>
+						</div>
+					</div>
+				</div>
+				<%end%>
+				<div class="row">
+					<% i = 0%>
+					<% j = 0%>
+					<% while i < @days_nb %>
+					<% i = i + 1  %>
+					<% j = j + 1  %>
+					<% if j ==  1 %>
+					<div class="span9 offset9 planningday">
+						<div class="row">
+							<% end %>
+							<div class="span3">
+								<div id="jour<%= i%>">
+									<div class="titleDD">
+										Jour <%= i%>
+									</div>
+								</div>
+							</div>
+							<% if j ==  3 %>
+							<% j = 0  %>
+
+						</div>
+					</div>
+					<% end %>
+
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		$('document').ready(init);
+
+		function init() {
+			$('#recipe1, #recipe2, #recipe3, #recipe4, #recipe5, #recipe6, #recipe7, #recipe8, #recipe9, #recipe10, #recipe11, #recipe12, #recipe13, #recipe14, #recipe15, #recipe16, #recipe17, #recipe18, #recipe19, #recipe20, #recipe21, #recipe22, #recipe23, #recipe24, #recipe25, #recipe26, #recipe27, #recipe28, #recipe29, #recipe30, #recipe31, #recipe32, #recipe33, #recipe34, #recipe35, #recipe36, #recipe37, #recipe38, #recipe39, #recipe40, #recipe41, #recipe42, #recipe43, #recipe44, #recipe45, #recipe46, #recipe47, #recipe48, #recipe49, #recipe50, #recipe51').bind('dragstart', function(event) {
+				event.originalEvent.dataTransfer.setData("text/plain", event.target.getAttribute('id'));
+			});
+
+			// bind the dragover event on the board sections
+			$('#recipe, #allrecipe, #jour1, #jour2, #jour3, #jour4, #jour5, #jour6, #jour7, #jour8, #jour9, #jour10, #jour11, #jour12, #jour13, #jour14').bind('dragover', function(event) {
+				event.preventDefault();
+			});
+
+			// bind the drop event on the board sections
+			$('#recipe, #allrecipe, #jour1, #jour2, #jour3, #jour4, #jour5, #jour6, #jour7, #jour8, #jour9, #jour10, #jour11, #jour12, #jour13, #jour14').bind('drop', function(event) {
+				var notecard = event.originalEvent.dataTransfer.getData("text/plain");
+				event.target.appendChild(document.getElementById(notecard));
+				// Turn off the default behaviour
+				// without this, FF will try and go to a URL with your id's name
+				event.preventDefault();
+			});
+		}
+	</script>

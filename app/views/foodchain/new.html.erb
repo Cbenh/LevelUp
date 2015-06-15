@@ -1,0 +1,19 @@
+
+<div class="" style="padding-top: 4%;"%>
+	<h2>FoodChain</h2>
+	<hr>
+<%= @recipe.name %>
+<%= form_for @recipe, html: { class: "form-horizontal" } do |f| %>
+<%= f.text_field :name, "", placeholder: "Titre" %>
+<%= f.label :prepDuration, "Temps de préparation", class: "control-label" %>
+<%= f.number_field :prepDuration, min: 1, step: 5, required: true %> Minutes
+<%= f.label :bakingDuration, "Temps de cuisson", class: "control-label" %>
+<%= f.number_field :bakingDuration, min: 1, step: 5, required: true %> Minutes
+<%= f.label :difficulty, "Niveau de difficulté", class: "control-label" %>
+<%= f.number_field :difficulty, min: 1, step: 1, required: true %> /5
+<%= f.text_field :ingredients, "", placeholder: "Ingredients" %>
+<%= f.text_field :steps, "", placeholder: "Etapes" %>
+<%= f.submit "Valider" %>
+<% end %>
+
+</div>

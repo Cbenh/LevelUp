@@ -1,0 +1,41 @@
+<div class="container-index">
+	<div class="index-box">
+		<div class="title">
+			<h2>DareForget</h2>
+			<hr>
+			<h3>Mes items</h3>
+		</div>
+
+		<div class="btn-toolbar">
+			<%= link_to "Ajouter un item", available_items_path, class: :btn %>
+		</div>
+
+		<table class="table">
+			<tr>
+				<th>Items</th>
+				<th>Stock restant estimé</th>
+				<th>Rupture de stock estimée</th>
+				<th></th>
+			</tr>
+			<% if @sorts %>
+			<div class="row">
+				<div class="tri-link">
+					Tri :
+					<% @sorts.each do |text, param| %>
+					<%= sort_link text, param %>
+					<% end %>
+				</div>
+			</div>
+			<% end %>
+			<% @items.each do |i| %>
+			<tr>
+				<td><%= link_to i.name, edit_item_path(i) %></td>
+				<td><%= sprintf( "%0.00f", i.stock) %> <%= i.unit %></td>
+				<td><%= l i.stockout_at, format: :long %></td>
+				<td> <%= link_to "Supprimer", i, method: :delete, class: :btn,
+				confirm: "Etes vous sur de vouloir supprimer cet item ?" %> </td>
+			</tr>
+			<% end %>
+		</table>
+	</div>
+</div>

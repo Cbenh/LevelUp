@@ -1,0 +1,58 @@
+<div class="container-dontpanic">
+	<div class="dp-box">
+		<div class="title">
+			<h2>DontPanic</h2>
+			<hr>
+		</div>
+		<div class="toolbar-search">
+			<%= link_to "Fermer le tuto", dontpanic_path, class: :btn %>
+			<%= link_to "Nouvelle recherche", dontpanic_search_path, class: :btn %>
+			<%= link_to "Mes tutos", dontpanic_path, class: :btn %>
+			<% unless current_user.has_tutorial? @tutorial.id %>
+			<%= link_to "Télécharger ce tuto sur mon mobile", "#downloadModal", data: { toggle: :modal }, class: :btn %>
+			<% end %>
+		</div>
+		<div class="tutorial-list">
+			<%= image_tag @tutorial.image, class: "span4 img-title" %>
+			<div class="span8">
+				<h1><%= @tutorial.title %></h1>
+				<p>
+					<%= @tutorial.description %>
+				</p>
+				<%= link_to "Commencer >>", dontpanic_tutorial_path(id: @tutorial.id, page: 1), class: "pull-right btn" %>
+
+				<p>
+					score actuel : <%= @tutorial.score %>
+				</p>
+
+				<form action="<%= dontpanic_update_path() %>" method="get" >
+					<%= hidden_field_tag :id, @tutorial.id %>
+
+					<p>
+						noter ce tuto : <%= number_field_tag :score, min: 1, max: 5, step: 1, required: true%>/5
+					</p>
+
+					<div class="form-actions">
+						<%= submit_tag "Valider", class: :btn %>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal hide" id="downloadModal">
+	<div class="modal-header">
+		<h3>Téléchargement</h3>
+	</div>
+	<div class="modal-body">
+		<p>
+			Voulez-vous télécharger « <%= @tutorial.title %> » sur votre mobile ?
+		</p>
+	</div>
+	<div class="modal-footer">
+		<a href="#" class="btn" data-dismiss="modal">Nope</a>
+		<%= link_to "Ouep", dontpanic_download_path(@tutorial.id), method: :post, class: "btn btn-primary" %>
+	</div>
+</div>

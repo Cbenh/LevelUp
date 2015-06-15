@@ -1,0 +1,65 @@
+<div class="edit-profile">
+	<section class="section-profile">
+		<form id="theForm" class="simform" autocomplete="off">
+			<div class="simform-inner">
+				<ol class="questions">
+					<li>
+						<span><label class="label-profil" for="q1">Quel est ton adresse email ?</label></span>
+						<input id="q1" name="q1" type="text"/>
+					</li>
+					<li>
+						<span><label class="label-profil" for="q2">tu veux changer de mot de passe ?</label></span>
+						<input id="q2" name="q2" type="text"/>
+					</li>
+					<li>
+						<span><label class="label-profil" for="q3">Quel est ton pseudo ?</label></span>
+						<input id="q3" name="q3" type="text"/>
+					</li>
+					<li>
+						<span><label class="label-profil" for="q4">Homme ou femme ?</label></span>
+						<input id="q4" name="q4" type="text"/>
+					</li>
+					<li>
+						<span><label class="label-profil" for="q5">tu es né quand ?</label></span>
+						<input id="q5" name="q5" type="text"/>
+					</li>
+					<li>
+						<span><label class="label-profil" for="q6">photo de profil ?</label></span>
+						<input id="q6" name="q6" type="text"/>
+					</li>
+				</ol><!-- /questions -->
+				<div class="controls">
+					<button class="next"></button>
+					<div class="progress"></div>
+					<span class="number"> <span class="number-current"></span> <span class="number-total"></span> </span>
+					<span class="error-message"></span>
+				</div><!-- / controls -->
+			</div><!-- /simform-inner -->
+			<span class="final-message"></span>
+		</form><!-- /simform -->
+	</section>
+</div><!-- /container -->
+
+<script type="text/javascript">
+
+	var theForm = document.getElementById('theForm');
+
+	new stepsForm(theForm, {
+		onSubmit : function(form) {
+			
+			// hide form
+			classie.addClass(theForm.querySelector('.simform-inner'), 'hide');
+
+			/*
+			form.submit()
+			or
+			AJAX request (maybe show loading indicator while we don't have an answer..)
+			*/
+
+			// let's just simulate something...
+			var messageEl = theForm.querySelector('.final-message');
+			messageEl.innerHTML = "Merci d'avoir remplis ce formulaire. Ton profil a été mis-à-jour";
+			classie.addClass(messageEl, 'show');
+		}
+	}); 
+</script>

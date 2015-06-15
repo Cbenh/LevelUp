@@ -1,0 +1,121 @@
+p {
+	text-align: justify;
+}
+
+h2 {
+	text-align: center;
+}
+
+img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto
+}
+.navbar .in .nav li {
+	display: block;
+	float: none;
+	width: 100%;
+}
+
+.logo_header {
+	float: left;
+	position: relative;
+	top: -38px;
+	padding-left: 3%;
+}
+
+.logo_header_logout {
+	float: left;
+	top: 10px;
+	position: relative;
+	padding-left: 3%;
+}
+
+.navbar_header_logout {
+
+}
+
+.navbar_header_login {
+	background-color: rgb(38, 97, 173);
+	border-color: rgb(38, 97, 173);
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.button_login_header {
+	font-family: 'Verdana Bold', Arial, Helvetica, sans-serif;
+	background-color: rgb(36, 31, 33);
+	color: white;
+	padding: 10px 25px;
+	border-radius: 0px 0px 10px 10px;
+	font-weight: bold;
+}
+
+.button_login_header:hover {
+	text-decoration: none;
+}
+
+.button_login_box {
+	background-color: rgb(37, 98, 173);
+	color: white;
+	margin-right: 11%;
+	padding: 2px 70px;
+}
+
+.button_register_header {
+	font-family: 'Verdana Bold', Arial, Helvetica, sans-serif;
+	background-color: rgb(36, 31, 33);
+	color: white;
+	padding: 10px 11px;
+	margin-left: 3px;
+	border-radius: 0px 0px 10px 10px;
+	font-weight: bold;
+}
+
+.button_register_header:hover {
+	text-decoration: none;
+}
+
+.login_link {
+	float: right;
+	display: -webkit-inline-box;
+	margin-right: 10%;
+	margin-top: -5px;
+}
+
+.a-header {
+	font-size: 20px;
+	border-left: 1px solid rgb(24, 58, 119);
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	color: white;
+}
+
+.a-header:hover {
+	color: white;
+}
+
+.a-profil {
+	padding-right: 10px;
+}
+
+.a-profil:hover {
+	text-decoration: none;
+}
+
+
+.a-deconnexion {
+	border-right: 1px solid rgb(24, 58, 119);
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+}
+
+.a-deconnexion:hover {
+	border-right: 1px solid rgb(24, 58, 119);
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	text-decoration: none;
+}

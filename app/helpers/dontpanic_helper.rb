@@ -1,0 +1,2 @@
+module DontpanicHelper
+end

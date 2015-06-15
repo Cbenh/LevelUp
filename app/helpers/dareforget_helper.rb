@@ -1,0 +1,2 @@
+module DareforgetHelper
+end

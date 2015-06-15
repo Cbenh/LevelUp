@@ -1,0 +1,51 @@
+#board {
+	width: 200px;
+	min-height: 30px;
+	position: relative;
+}
+
+.titleDD {
+	background-color: rgb(38, 97, 173);
+	text-align: center;
+	color: white;
+	padding: 2px 0px;
+}
+
+#allrecipe {
+}
+
+#recipe {
+	background-color: #f5f5f5;
+	position: absolute;
+	width: 100px;
+	min-height: 300px;
+	border: 2px solid black;
+}
+
+#jour1, #jour2, #jour3, #jour4, #jour5, #jour6, #jour7, #jour8, #jour9, #jour10, #jour11, #jour12, #jour13, #jour14 {
+	background-color: #f5f5f5;
+	position: absolute;
+	width: 100px;
+	min-height: 100px;
+	border: 2px solid black;
+}
+
+*[draggable=true] {
+	float: left;
+	border: 1px solid black;
+	margin: 10px;
+	font-weight: bold;
+	-webkit-background-size: 1px 8px;
+	-moz-background-size: 1px 8px;
+	background-size: 1px 8px;
+	background-repeat: repeat;
+}
+
+.cardTitle {
+	background-color: rgb(255,255,255);
+	border: 2px solid white;
+}
+
+.planningday {
+	height: 150px;
+}

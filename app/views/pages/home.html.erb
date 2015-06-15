@@ -1,0 +1,180 @@
+<div class="wrapper home-page">
+	<div class="main">
+		<% if current_user.logged_in? %>
+		<section class="page2"%>
+			<div class="video-bloc">
+				<iframe class="video-player" src="http://video.epitech.eu/index.php/view-media-html5-2077.html" width="421" height="279" frameborder="0" scrolling="no"></iframe>
+				<div class="video-caption video-caption-main">
+					<h2 class="video-title">LevelUp</h2>
+					<div class="video-description">
+						<p>
+							LevelUp est une suite d’applications mobiles et web à destination des jeunes quittant le domicile familial.
+							Développée dans le cadre des Epitech Innovative Projects, LevelUp est composée de 4 applications différentes.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>
+
+<%else%>
+<section class="page1 ha-waypoint" data-animate-down="ha-header-show" data-animate-up="ha-header-hide">
+	<div class="box_title_link page_container">
+		<h1 class="title_page1">LevelUp</h1>
+		<div class="box_button">
+			<%= link_to "Connexion", "#downloadModalLogin", data: { toggle: :modal }, class: :button_login_page1 %>
+			<%#= link_to "Créer un compte", "#downloadModalRegister", data: { toggle: :modal }, class: :button_register_page1 %>
+
+			<!-- Modal -->
+			<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<%= link_to image_tag("LEVEL_UP_LOGO_SMALL.png", :class => "logo_header"), root_path %>
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						×
+					</button>
+					<h3 id="myModalLabel">En avant pour la BETA ! </h3>
+				</div>
+				<div class="modal-body">
+					<p>
+						<h4>Eugène le hibou t'invite à rejoindre notre BETA fermée.</h4>
+					</p>
+					<p>
+						<h4>Essaye en exclusivité notre suite d'applications : LevelUp !</h4>
+					</p>
+					<p>
+						<h4><%= link_to "Rejoins-nous !!", "https://www.facebook.com/pages/Levelup/596745760384338", target: "_blank", :class => '' %></h4>
+					</p>
+
+				</div>
+				<div class="modal-footer">
+					<div style="float: left;">
+						Contactez nous à l'adresse suivante : <h5> levelup.dev@gmail.com</h5
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="page2 ha-waypoint" data-animate-down="" data-animate-up="ha-header-hide">
+	<div class="video-bloc">
+		<iframe class="video-player" src="http://video.epitech.eu/index.php/view-media-html5-2077.html" width="421" height="279" frameborder="0" scrolling="no"></iframe>
+		<div class="video-caption video-caption-main">
+			<h2 class="video-title">LevelUp</h2>
+			<div class="video-description">
+				<p>
+					Le lancement de la béta approche à grands pas ! Si vous souhaitez participer et être parmi nos premiers utilisateurs.
+				</p>
+				<p>
+
+					Vous pouvez envoyer un mail à levelup.dev@gmail.com, ou nous contacter directement sur notre page <%= link_to "Facebook", "https://www.facebook.com/pages/Levelup/596745760384338", target: "_blank", style: "color: white;" %>
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="page3 ha-waypoint" data-animate-down="" data-animate-up="ha-header-show">
+	<div class="container">
+		<div class="span12">
+			<br>
+			<div class="row">
+				<div class="span5 ">
+					<h2>Les nouveaux tutos</h2>
+					<br>
+					<br>
+
+					<%@newest_tutorials.each do |t| %>
+					<%= link_to(dontpanic_tutorial_path(t.id)) do %>
+					<div class="row boxPage3">
+						<h4 class="span4"> <%= t.title %> </h4>
+						<div class="span2", style="width: 90px;">
+
+							<%= image_tag t.image, class: "img-rounded"  %>
+						</div>
+						<div class="span3" style="font-size: 13px;">
+							<%= t.description.truncate(90, separator: ' ') %>
+
+						</div>
+					</div>
+					<% end %>
+
+					<%end%>
+				</div>
+
+				<div class="span5 offset2">
+					<h2>Les meilleures recettes</h2>
+					<br>
+					<br>
+
+					<%@ratedrecipes.each do |t| %>
+					<%= link_to(details_path(t.id)) do %>
+
+					<div class="row boxPage3">
+						<h4 class="span4"> <%= t.name %> </h4>
+						<div class="span2">
+
+							<%#= image_tag t.image, class: "img-rounded" %>
+						</div>
+						<div class="span3" style="font-size: 13px;">
+							Note: <%= t.grade%>/5
+							<br>
+							Difficulté : <%= t.difficulty%>
+							<br>
+							<br>
+						</div>
+					</div>
+					<% end %>
+
+					<%end%>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</section>
+
+</div>
+</div>
+<%end%>
+
+<% if !current_user.logged_in? %>
+<script>
+	$('#myModal').modal({
+		show : true,
+		backdrop : false
+	})
+</script>
+<script>
+	$(document).ready(function() {
+		$(".main").onepage_scroll({
+			sectionContainer : "section",
+			responsiveFallback : 0,
+			beforeMove : function(index) {
+				var $head = $('#ha-header');
+				$('.ha-waypoint').each(function(i) {
+					var $el = $(this),
+					    animClassDown = $el.data('animateDown'),
+					    animClassUp = $el.data('animateUp');
+					$el.waypoint(function(direction) {
+						if (direction === 'down' && animClassDown) {
+							$head.attr('class', 'ha-header ' + animClassDown);
+						} else if (direction === 'up' && animClassUp) {
+							$head.attr('class', 'ha-header ' + animClassUp);
+						}
+					}, {
+						offset : '100%'
+					});
+				});
+			},
+			afterMove : function(index) {
+				$('#slidetoggle span').show();
+			},
+		});
+	}); 
+</script>
+
+<%end%>

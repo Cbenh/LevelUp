@@ -1,0 +1,64 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<div class="container-dontpanic">
+	<div class="dp-box">
+		<div class="title">
+			<h2>DontPanic</h2>
+			<hr>
+		</div>
+		<div class="toolbar-search">
+			<form action="<%= dontpanic_results_path %>" method="get" >
+
+				Quel est le problème ?
+				<%= text_field_tag :query, "", placeholder: "Recherche" %>
+				<%= submit_tag "Rechercher" %>
+				<%= link_to "Catégories", dontpanic_categories_path, class: :btn %>
+				<%= link_to "Mes tutos", dontpanic_path, class: :btn %>
+		</div>
+
+		<div class="row">
+			<ul id="cbp-ntaccordion" class="cbp-ntaccordion">
+				<% @newest_tutorials.each do |t| %>
+		
+				<li>
+					<h3 class="cbp-nttrigger"><%= t.title.presence || "(Sans Titre)" %></h3>
+					<div class="cbp-ntcontent">
+						<p>
+							<%= t.description %>
+						</p>
+						<ul class="cbp-ntsubaccordion">
+							<%= link_to dontpanic_tutorial_path(t.id) do %>
+							<li>
+								<h4 class="cbp-nttrigger">Lire le tuto</h4>
+							</li>
+							<% end %>
+
+							<li>
+								<h4 class=""><%= t.score %> / 5</h4>
+							</li>
+							<li>
+								<h4 class=""><%= t.downloads %> téléchargements</h4>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(function() {
+		/*
+		 - how to call the plugin:
+		 $( selector ).cbpNTAccordion( [options] );
+		 - destroy:
+		 $( selector ).cbpNTAccordion( 'destroy' );
+		 */
+
+		$('#cbp-ntaccordion').cbpNTAccordion();
+
+	}); 
+</script>
+

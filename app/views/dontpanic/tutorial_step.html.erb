@@ -1,0 +1,73 @@
+<script>
+	$(function() {
+		/*
+		 - how to call the plugin:
+		 $( selector ).cbpFWSlider( [options] );
+		 - options:
+		 {
+		 // default transition speed (ms)
+		 speed : 500,
+		 // default transition easing
+		 easing : 'ease'
+		 }
+		 - destroy:
+		 $( selector ).cbpFWSlider( 'destroy' );
+		 */
+
+		$('#cbp-fwslider').cbpFWSlider();
+
+	}); 
+</script>
+<div class="container-dontpanic">
+	<div class="dp-box">
+		<div class="title">
+			<h2>DontPanic</h2>
+			<hr>
+		</div>
+		<div class="link-tuto">
+			<%= link_to "Fermer le tuto", dontpanic_path, class: :btn %>
+			<%= link_to "Nouvelle recherche", dontpanic_search_path, class: :btn %>
+			<%= link_to "Mes tutos", dontpanic_path, class: :btn %>
+			<% unless current_user.has_tutorial? @tutorial.id %>
+			<%= link_to "Télécharger ce tuto sur mon mobile", "#downloadModal", data: { toggle: :modal }, class: :btn %>
+			<% end %>
+		</div>
+		<div id="cbp-fwslider" class="cbp-fwslider">
+			<ul>
+				<% @step.each do |i|%>
+
+				<li>
+					<div class="link-tuto">
+						<%= image_tag i.image, class: "span4" %>
+						<div class="span8">
+							<b><%= @tutorial.title %></b>
+							<h1><%= i.page %>. <%= i.title %></h1>
+							<div class="content-box">
+								<p class="step-content">
+									<%= i.content %>
+								</p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<% end %>
+			</ul>
+		</div>
+
+	</div>
+</div>
+
+<div class="modal hide" id="downloadModal">
+	<div class="modal-header">
+		<h3>Téléchargement</h3>
+	</div>
+	<div class="modal-body">
+		<p>
+			Voulez-vous télécharger « <%= @tutorial.title %> » sur votre mobile ?
+		</p>
+	</div>
+	<div class="modal-footer">
+		<a href="#" class="btn" data-dismiss="modal">Nope</a>
+		<%= link_to "Ouep", dontpanic_download_path(@tutorial.id), method: :post, class: "btn btn-primary" %>
+	</div>
+</div>

@@ -1,0 +1,17 @@
+<div class="container" style="padding-top: 3%;">
+  <h2>Créer un compte</h2>
+  <hr>
+</div>
+Nouveau sur LevelUp ? Inscrivez-vous
+
+<div class="half left span4 pull-left">
+  <%= form_tag registration_path do %>
+    <div class="span7">
+      <%= text_field_tag :email, nil, placeholder: "Email" %>
+      <br>
+      <%= password_field_tag :password, nil, placeholder: "Mot de passe" %>
+      <br>
+      <%= submit_tag "S'inscrire" %>
+    </div>
+  <% end %>
+</div>

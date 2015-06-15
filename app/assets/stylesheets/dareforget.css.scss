@@ -1,0 +1,55 @@
+// Place all the styles related to the Dareforget controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container-index{
+    height: 100%;
+    background-color: #F2F9FF;
+  }
+
+.index-box{
+margin-top: 42px;
+margin-left: 10%;
+}
+
+.title{
+}
+
+.btn-toolbar{
+  margin-top: 2%;
+}
+
+.tri-link{
+  margin-left: 20%;
+  margin-top: 1%;
+}
+
+.available-box{
+margin-top: 42px;
+margin-left: 10%;
+}
+
+.item-df{
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(59, 164, 213)), to(rgb(37, 98, 173)));
+    background-color: rgb(37, 98, 173);
+  border-radius: 5px 5px 5px 5px;
+  color: white;
+  font-family: 'Verdana Bold', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  display: inline-table;
+ padding: 10px 50px;
+ margin-bottom: 10px;
+ margin-right: 20px; 
+  }
+
+
+.item-df:hover{
+     box-shadow: 10px 10px 12px #555;
+     color: white;
+   }
+
+
+.itemlist-df{
+  margin-top: 5%;
+  margin-left: -5%;
+}

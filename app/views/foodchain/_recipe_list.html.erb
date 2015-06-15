@@ -1,0 +1,52 @@
+<div>
+	<div style="float: left;">
+		<h3>Plus utilisées</h3>
+
+		<% i = 0%>
+		<% @usedrecipes.each do |r| %>
+		<% i = i + 1  %>
+
+		<div id="recipe<%= i%>">
+			<div class="">
+				<%= r.id%>
+
+				<%= link_to r.name, details_path(r.id) %>
+
+				<br>
+				note: <%= r.grade%>/5
+				<br>
+				prix :<%= r.price%>€
+			</div>
+			<div class="recipePrep">
+				Temps de préparation : <%= r.preparation%> minutes
+				<br>
+				Temps de cuisson : <%= r.bakingTime%> minutes
+			</div>
+		</div>
+		<% end %>
+	</div>
+	<div style="float: left;">
+		<h3>Mieux notées</h3>
+
+		<% i = 10%>
+		<% @ratedrecipes.each do |r| %>
+		<% i = i + 1  %>
+		<div id="recipe<%= i%>">
+			<div class="">
+				<%= r.id%>
+
+				<%= link_to r.name, details_path(r.id) %>
+				<br>
+				note: <%= r.grade%>/5
+				<br>
+				prix :<%= r.price%>€
+			</div>
+			<div class="recipePrep">
+				Temps de préparation : <%= r.preparation%> minutes
+				<br>
+				Temps de cuisson : <%= r.bakingTime%> minutes
+			</div>
+		</div>
+		<% end %>
+	</div>
+</div>

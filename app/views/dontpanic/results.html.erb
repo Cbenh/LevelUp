@@ -1,0 +1,61 @@
+<div class="container-dontpanic">
+	<div class="dp-box">
+		<div class="title">
+			<h2>DontPanic</h2>
+			<hr>
+		</div>
+		<div class="toolbar-search">
+			<%= link_to "Mes tutos", dontpanic_path, class: :btn%>
+			<%= link_to "Nouvelle recherche", dontpanic_search_path, class: :btn %>
+		</div>
+		<div class="row">
+			<div class="span2">
+				<ul>
+					<% current_user.dontpanic_categories.each do |c| %>
+					<li>
+						<%= link_to c.name, dontpanic_category_path(c.id) %>
+						<% end %>
+				</ul>
+			</div>
+			<div class="span10 tutorial-list">
+				<% if @sorts %>
+				<div class="row">
+					<div class="span10">
+						Tri :
+						<% @sorts.each do |text, param| %>
+						<%= sort_link text, param %>
+						<% end %>
+					</div>
+				</div>
+				<% end %>
+
+			</div>
+		</div>
+
+		<div class="row">
+			<section class="grid-wrap">
+				<ul class="grid swipe-down" id="grid">
+					<li class="title-box">
+						<h2><%= @title %></h2>
+					</li>
+					<% @results.each do |t| %>
+					<li>
+						<%= link_to dontpanic_tutorial_path(t.id) do %>
+
+						<%= image_tag t.image, width: 300 %><h3 class="tuto-title-dp" style="width: 90%"><%= t.title.presence || "(Sans Titre)" %></h3>
+						<div class="info-title-dp"><%= t.score %> / 5 | <%= t.downloads %> téléchargements</div>
+						<% end %>
+					</li>
+					<% end %>
+
+				</ul>
+			</section>
+		</div>
+
+	</div>
+</div>
+<script>
+	new GridScrollFx(document.getElementById('grid'), {
+		viewportFactor : 0.4
+	}); 
+</script>

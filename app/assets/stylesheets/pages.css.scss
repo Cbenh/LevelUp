@@ -1,0 +1,263 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+  html {
+    height: 100%;
+    background-color: #F2F9FF;
+    overflow-x: hidden;
+  }
+
+  .wrapper {
+    height: 100%;
+    background-color: #F2F9FF;
+    overflow-x: hidden;
+  }
+ 
+ .home-page {
+       overflow:hidden;
+     overflow-x: hidden;
+
+ }
+  
+
+// HOME // PAGE 1
+
+  .main section.page1 {
+    background-color: #F2F9FF;
+    background-position: right bottom;
+    background-image: url('LOGO_FAT_BACKGROUND.png');
+    background-repeat: no-repeat;
+  }
+
+  .title_page1 {
+  font-family: 'Metaplus Bold Roman', 'Verdana Bold', arial, Helvetica, sans-serif;
+  font-size: 61px;
+margin-left: 60px;
+  margin-bottom: 30px;
+}
+
+.button_login_page1 {
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(59, 164, 213)), to(rgb(37, 98, 173)));
+  background-color: rgb(37, 98, 173);
+  border-radius: 5px 5px 5px 5px;
+  color: white;
+  font-family: 'Verdana Bold', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  padding:  10px 50px;
+  margin-left: 85px;
+}
+
+.button_login_page1:hover {
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#2562ad), to(#3ba4d5));
+    text-decoration: none;
+}
+
+.button_register_page1 {
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(59, 164, 213)), to(rgb(37, 98, 173)));
+  background-color: rgb(37, 98, 173);
+  color: white;
+  font-family: 'Verdana Bold', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  padding:  10px 36px;
+  border-radius: 5px 5px 5px 5px;
+  margin-left: 10px;
+}
+
+.button_register_page1:hover {
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#2562ad), to(#3ba4d5));
+      text-decoration: none;
+
+}
+
+.box_title_link{
+  position: absolute;
+  top: 30%;
+  left: 20%;
+}
+
+.box_button{
+  display: -webkit-inline-box;
+}
+// HOME // PAGE 2
+
+.main section.page2 {
+    background-color: #F2F9FF;
+  }
+  
+ .video-bloc {
+  background-color: rgb(38,97,173);
+  width: 880px;
+  height: 300px;
+  margin-left: -440px;
+  margin-top: -200px;
+  padding: 21px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+}
+
+.video-bloc:before {
+  content: "";
+  display: block;
+  width: 511px;
+  height: 523px;
+  background-image: url('FOND_LEVELUP.png');
+  position: absolute;
+  bottom: -108px;
+  left: -100px;
+}
+
+.video-player {
+  float: left;
+  position: relative;
+}
+
+.video-caption {
+  width: 350px;
+  margin-left: 52px;
+  float: left;
+}
+
+.video-caption-main {
+  margin-top: 45px;
+}
+
+.video-caption-more {
+  display: none;
+}
+
+.video-title {
+  font-size: 30px;
+  font-family: 'Verdana Bold', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  margin-bottom: 13px;
+}
+
+.video-description {
+  font-size: 14px;
+  font-family: 'Verdana', Arial, Helvetica, sans-serif;
+  line-height: 13px;
+}
+
+.video-caption-toggle {
+  font-size: 11px;
+}
+
+
+
+
+// HOME // PAGE 3
+
+  .main section.page3 {
+    background-color: #F2F9FF;
+    background-repeat: no-repeat;
+    padding-top: 3%;
+  }
+
+  .box_page3 {
+    width: 90px; 
+    height: 90px;
+    border: 8px solid rgb(38, 97, 173);
+  }
+
+.row1_box {
+  padding-top:5%;
+  padding-left:5%;
+}
+
+.row2_box {
+   padding-left:5%;
+}
+
+.box_page3 {
+  float: center;
+  background-color: rgb(38, 97, 173);
+  width: 90px; 
+  height: 150px;
+  margin-left: 19%;
+  padding-left: 8px;
+  padding-right: 8px;
+
+}
+
+.text_box {  
+  color: white;
+  font-family: 'Verdana Bold', Arial, Helvetica, sans-serif;
+  text-align: justify;
+  font-size: 9px;
+}
+
+.title_box {
+  color: white;
+  font-family: 'Verdana Bold', Arial, Helvetica, sans-serif;
+}
+
+.tutobox{
+}
+
+.tutobox:hover{
+ background-color: rgb(59, 164, 213);
+ border-radius: 10px 10px 10px 10px;
+}
+
+
+.box_recette{
+  float: left;
+  width: 170px;
+}
+
+.box_recette:hover{
+    background-color: rgb(59, 164, 213);
+    border-radius: 10px 10px 10px 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    box-shadow: 10px 10px 12px #555;
+}
+
+.row {
+  margin-left: 0;
+  margin-bottom: 5px;
+}
+
+//ABOUT US//
+
+
+
+.main{
+   background-color: #F2F9FF;
+}
+
+//CONTACT//
+
+.box-contact {
+padding: 10px 10px 10px 10px;
+border: 1px solid #2661ad;
+background-color: white;
+border-radius: 5px 5px 5px 5px;
+}
+
+.lvlbtn{
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(59, 164, 213)), to(rgb(37, 98, 173)))!important;
+    color: white!important;
+}
+
+.lvlbtn:hover{
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(37, 98, 173)), to(rgb(59, 164, 213)))!important;
+    color: white!important;
+}
+
+.boxPage3{
+  border: 1px solid rgb(38, 97, 173);
+  background-color: white;  
+  border-radius: 5px 5px 5px 5px;
+}
+
+.boxPage3:hover{
+    border: 1px solid rgb(38, 97, 173);
+  background-color: #E8F2FF;  
+  border-radius: 5px 5px 5px 5px;
+}
+

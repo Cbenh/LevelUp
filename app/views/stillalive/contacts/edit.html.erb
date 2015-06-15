@@ -1,0 +1,43 @@
+<div class="container-stillalive">
+  <div class="sa-box">
+    <div class="title">
+      <h2>StillAlive</h2>
+      <hr>
+      <h3><%= @contact.name %></h3>
+
+      <%= form_for @contact, html: { class: "form-horizontal" } do |f| %>
+
+        <div class="control-group">
+          <label class="control-label">Vous voulez suivre :</label>
+          <div class="controls">
+            <label class="checkbox">
+              <%= f.check_box :track_calls %> Les appels
+            </label>
+            <label class="checkbox">
+              <%= f.check_box :track_sms %> Les SMS
+            </label>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :days_interval, "Durée maximale sans nouvelles échangées entre vous et #{@contact.name}", class: "control-label" %>
+          <div class="controls">
+            <%= f.number_field :days_interval, min: 1, step: 1, required: true %> jours
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :reminder_hour, "Rappelle le moi à :", class: "control-label" %>
+          <div class="controls">
+            <%= f.time_select :reminder_hour, minute_step: 5 %>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <%= f.submit "Valider" %>
+          <%= link_to "annuler", stillalive_path, class: :btn %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

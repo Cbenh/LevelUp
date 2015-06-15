@@ -1,0 +1,19 @@
+<div class="container-index">
+	<div class="available-box">
+		<div class="title">
+			<h2>DareForget</h2>
+			<hr>
+			<h3>Items disponibles</h3>
+		</div>
+
+		<div class="btn-toolbar">
+			<%= link_to "Mes items", items_path, class: :btn %>
+		</div>
+
+		<div class="itemlist-df">
+			<% @items.each do |i| %>
+			<%= link_to i.name, new_item_path(i.id), class: "item-df" %>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,21 @@
+<footer>
+  <div class="foot-fixed-bottom">
+    <div class="container">
+      <div class="text_footer">
+        <div class="copyright">
+          COPYRIGHT &copy; 2014 LEVELUP SUITE
+        </div>
+        <div class="footer_link">
+          <%= link_to "À PROPOS", about_page_path, :class => 'footer_link'%> |
+          <%= link_to "CONTACT", contact_page_path, :class => 'footer_link'%> |
+          <%= link_to "PRESSE", press_page_path, :class => 'footer_link' %>
+        </div>
+      </div>
+
+      <div>
+        <%= link_to image_tag("TWITTER.png"),  "https://twitter.com/LevelUpSuite", target: "_blank", :class => 'social_link' %>
+        <%= link_to image_tag("FACEBOOK.png"), "https://www.facebook.com/pages/Levelup/596745760384338", target: "_blank", :class => 'social_link' %>
+        <%= link_to image_tag("GOOGLE+.png"), "https://plus.google.com/u/0/b/113728978350272532262/113728978350272532262/posts", target: "_blank", :class => 'social_link'%>
+      </div>
+    </div>
+</footer>

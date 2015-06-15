@@ -1,0 +1,32 @@
+
+<div class="" style="padding-top: 4%;"%>
+	<h2>FoodChain</h2>
+	<hr>
+<%= render "recipe_list" %>
+
+	<%= render "search" %>
+	<hr>
+
+	<tr>
+
+		<div class="">
+
+			<%= form_tag url_for(:controller => 'foodchain', :action => "generate_planning"), method: "get", html: { class: "form-horizontal" } do  %>
+
+			<div class="">
+				<%= label_tag :days_nb, "Pour combien de jour(s) souhaitez-vous faire les courses ?", class: "control-label" %>
+				<%= number_field_tag :days_nb, min: 1, step: 1, required: true %> Jour(s)
+			</div>
+
+			<div class="">
+				<%= label_tag :consumer_nb, "Pour combien de personne(s) souhaitez-vous faire les courses ?", class: "control-label" %>
+				<%= number_field_tag :consumer_nb, min: 0, step: 1, required: true %> Personne(s)
+			</div>
+		</div>
+
+		<div class="">
+			<%= submit_tag "Générer un planning" %>
+		</div>
+		<% end %>
+</div>
+

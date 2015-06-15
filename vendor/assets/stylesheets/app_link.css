@@ -1,0 +1,119 @@
+.button_link {
+}
+
+.link-app {
+	position: absolute; /* position par rapport au plus proche parent qui a une position relative|absolute|static, ou au <html> à défaut */
+	top: 50%;
+	right: 0;
+	z-index: 1; /* remonte l'élément au dessus du wrapper, qui a un z-index à 0 par défaut */
+	width: 120px;
+	height: 80px;
+	margin-top: -40px; /* la moitié de la hauteur, pour le centrer vertialement */
+	background-color: transparent;
+}
+
+.nav-link {
+	position: absolute; /* position par rapport au plus proche parent qui a une position relative|absolute|static, ou au <html> à défaut */
+	top: 16%;
+	right: 0;
+	z-index: 1; /* remonte l'élément au dessus du wrapper, qui a un z-index à 0 par défaut */
+	background-color: transparent;
+	width: 100px;
+	float: left;
+}
+ul {
+	margin: 0;
+	padding: 0;
+}
+.li-link {
+	width: 52px;
+	float: right;
+	height: 120px;
+	background-color: white;
+	position: relative;
+	list-style: none;
+	font: Georgia, "Times New Roman", Times, serif;
+	color: #ef7a1a;
+	font-size: 25px;
+	box-shadow: 1px 1px 12px #555;
+	border-radius: 5px 0px 0px 5px;
+}
+
+.li-link:hover {
+	display: block;
+	text-decoration: none;
+}
+
+.nav-link .li-link p {
+	display: block;
+	margin-left: 10px;
+	margin-top: 25%;
+	margin-left: 10%;
+	position: relative;
+}
+
+.a-dareforget {
+	display: block;
+	width: 162px;
+	font-size: 21px;
+	font-weight: bold;
+	color: green;
+	margin-left: 9px;
+	height: 162px;
+}
+
+.a-foodchain {
+	display: block;
+	width: 162px;
+	font-size: 21px;
+	font-weight: bold;
+	color: orange;
+	margin-left: 9px;
+	height: 162px;
+}
+
+.a-dontpanic {
+	display: block;
+	width: 162px;
+	font-size: 21px;
+	font-weight: bold;
+	color: blue;
+	margin-left: 9px;
+	height: 162px;
+}
+
+.a-stillalive {
+	display: block;
+	width: 162px;
+	font-size: 21px;
+	font-weight: bold;
+	color: red;
+	margin-left: 9px;
+	height: 162px;
+}
+
+.a-dareforget:hover {
+	text-decoration: none;
+	color: green;
+}
+
+.a-foodchain:hover {
+	text-decoration: none;
+	color: orange;
+}
+
+.a-dontpanic:hover {
+	text-decoration: none;
+	color: blue;
+}
+
+.a-stillalive:hover {
+	text-decoration: none;
+	color: red;
+}
+
+.logo_app {
+	position: relative;
+	margin-top: -136px;
+	max-width: 50px;
+}

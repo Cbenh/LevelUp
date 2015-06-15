@@ -1,0 +1,52 @@
+<div class="recipeTitle">
+	<%#= image_tag(@recipe.imgUrl) %>
+</div>
+
+<div class="recipeTitle">
+	<h2><%= @recipe.name%></h2>
+	<br>
+	Note: <%= @recipe.grade%>/5
+	<br>
+	Difficulté : <%= @recipe.difficulty%>
+	Prix :<%= @recipe.price%>€
+</div>
+<div class="recipePrep">
+	Temps de préparation : <%= @recipe.preparation%> minutes
+	<br>
+	Temps de cuisson : <%= @recipe.bakingTime%> minutes
+</div>
+<div class="recipeIngrediants">
+	<h4>Ingrédients pour <%= @recipe.nbPersons%></h4>
+	<% i = 0%>
+	<% @recipe.ingredients.each do |r| %>
+	<% i = i + 1  %>
+	<div class="recipeIngrediants<%= i%>">
+
+		<%= r.quantity%> <%= r.unit%> de <%= r.productId%>
+	</div>
+	<% end %>
+</div>
+
+<div class="recipeIngrediants">
+	<h4>Préparation de la recette :</h4>
+	<% i = 0%>
+	<% @recipe.steps.each do |r| %>
+	<% i = i + 1  %>
+	<div class="recipeSteps<%= i%>">
+		<%= r.content%>
+		<br>
+	</div>
+	<% end %>
+</div>
+
+<div class="">
+	<%= form_tag url_for(:controller => 'foodchain', :action => "generate_planning"), method: "get", html: { class: "form-horizontal" } do  %>
+	<%= hidden_field_tag :recipe, @recipe.id %>
+	<%= hidden_field_tag :days_nb, 5 %>
+</div>
+
+<div class="">
+	<%= submit_tag "Ajouter au planning" %>
+</div>
+<% end %>
+

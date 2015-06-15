@@ -1,0 +1,68 @@
+
+<div class="wrapper" style="padding-top: 5%;">
+	<h2 class="">Contact</h2>
+	<div class="container" style="padding-top: 5%;">
+		<form class="span12 box-contact">
+			<!-- Text input-->
+			<div class="row">
+				<div class="span4">
+					<label class="control-label" for="nom">Nom</label>
+					<div class="controls">
+						<input id="nom" name="nom" type="text" placeholder="nom" class="input-large">
+
+					</div>
+				</div>
+				<div class="span4">
+					<label class="control-label" for="email">Email</label>
+					<div class="controls">
+						<input id="email" name="email" type="text" placeholder="email" class="input-large">
+
+					</div>
+				</div>
+
+			</div>
+			<!-- Select Basic -->
+			<div class="row">
+
+				<!-- Text input-->
+
+				<div class="span4">
+					<label class="control-label" for="subject">Sujet</label>
+					<select id="subject" name="subject" class="" style="width: 225px;">
+						<option>Encouragement / Félicitation</option>
+						<option>Remontée de bug / Dysfonctionnement</option>
+						<option>Suggestion d’ajout d’une fonctionnalité</option>
+						<option>Demande d’informations</option>
+						<option>Mécontentement / plainte</option>
+						<option>Autre</option>
+					</select>
+				</div>
+				<div class="span6">
+					<label class="control-label" for="message">Message</label>
+					<div class="controls">
+						<textarea id="message" cols="300" rows="10" class="message" name="message" style="margin: 0px; width: 420px; height: 200px;">message</textarea>
+					</div>
+				</div>
+			</div>
+
+			<!-- Textarea -->
+
+			<!-- Button -->
+			<div class="offset9">
+				<label class="control-label" for="send"></label>
+				<div class="controls">
+					<button id="send" name="send" class="btn btn-primary lvlbtn">
+						Envoyer
+					</button>
+				</div>
+			</div>
+
+			</fieldset>
+		</form>
+	</div>
+</div>
+
+<script>
+$('#ha-header').removeClass('ha-header-hide');
+</script>
+

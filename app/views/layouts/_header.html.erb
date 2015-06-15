@@ -1,0 +1,94 @@
+<div class="navbar navbar-inverse navbar-fixed-top" id="slidetoggle" style="height: 42px;">
+	<% if current_user.logged_in? %>
+	<div class="navbar_header_login"%>
+		<div class="container">
+			<ul class="nav pull-right">
+
+				<%= link_to "Profil", profile_path, :class => "a-header a-profil" %>
+				<%= link_to "Déconnexion", logout_path, method: :post, :class => "a-header a-deconnexion" %>
+			</ul>
+		</div>
+	</div>
+	<%= link_to image_tag("LEVEL_UP_LOGO_SMALL.png", :class => "logo_header"), root_path %>
+
+</div>
+<% else %>
+<div class="navbar_header_logout">
+	<!--Bouton de la page-->
+	<div id="ha-header" class="ha-header ha-header-hide">
+		<div class="login_link">
+			<%= link_to "Connexion", "#downloadModalLogin", data: { toggle: :modal }, class: :button_login_header %>
+			<%#= link_to "Créer un compte", "#downloadModalRegister", data: { toggle: :modal }, class: :button_register_header %>
+		</div>
+
+	</div>
+</div>
+
+<%= link_to image_tag("LEVEL_UP_LOGO_SMALL.png", :class => "logo_header_logout"), root_path %>
+<% end %>
+</div>
+
+<div class="modal hide" id="downloadModalLogin">
+	<%= link_to image_tag("LEVEL_UP_LOGO_SMALL.png", :class => "logo_header"), root_path %>
+
+	<div class="modal-header">
+		<h3>Se connecter ?</h3>
+	</div>
+	<div class="modal-body">
+		<%= form_tag login_path do %>
+		<div class="login_link">
+			<%= text_field_tag :email, nil, placeholder:'E-mail' %>
+			<%= password_field_tag :password, nil, placeholder:'Password' %>
+		</div>
+		<%= link_to "Mot de passe oublié ?", "#newPass", data: { toggle: :modal } %>
+		<br>
+	</div>
+	<div class="modal-footer">
+		<a href="#" class="btn" data-dismiss="modal">Nope</a>
+		<%= submit_tag "Ouep" ,:class => "btn btn-primary lvlbtn"%>
+		<% end %>
+	</div>
+</div>
+
+<div class="modal hide" id="newPass">
+	<%= link_to image_tag("LEVEL_UP_LOGO_SMALL.png", :class => "logo_header"), root_path %>
+
+	<div class="modal-header">
+		<h3>Mot de passe oublié ?</h3>
+	</div>
+	<div class="modal-body">
+		<%= form_tag newpass_path do %>
+		<div class="login_link">
+			<%= text_field_tag :email, nil, placeholder:'E-mail' %>
+		</div>
+		<br>
+	</div>
+	<div class="modal-footer">
+		<a href="#" class="btn" data-dismiss="modal">Nope</a>
+		<%= submit_tag "Ouep" ,:class => "btn btn-primary lvlbtn"%>
+		<% end %>
+	</div>
+</div>
+
+
+<div class="modal hide" id="downloadModalRegister">
+	<%= link_to image_tag("LEVEL_UP_LOGO_SMALL.png", :class => "logo_header"), root_path %>
+
+	<div class="modal-header">
+		<h3>Créer un compte ?</h3>
+	</div>
+	<div class="modal-body">
+		<%= form_tag registration_path do %>
+		<div class="login_link">
+			<%= text_field_tag :email, nil, placeholder: "Email" %>
+			<%= password_field_tag :password, nil, placeholder: "Password" %>
+		</div>
+		<br>
+	</div>
+	<div class="modal-footer">
+		<a href="#" class="btn" data-dismiss="modal">Nope</a>
+		<%= submit_tag "Ouep" ,:class => "btn btn-primary lvlbtn"%>
+		<% end %>
+	</div>
+</div>
+

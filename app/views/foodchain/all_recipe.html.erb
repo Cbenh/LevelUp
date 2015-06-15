@@ -1,0 +1,39 @@
+<div class="" style="padding-top: 4%;"%>
+	<h2>FoodChain</h2>
+	<hr>
+	<%= render "search" %>
+	<%= link_to "retour", foodchain_path %>
+
+	<h3>Toutes les recettes</h3>
+
+	<div class="container">
+
+		<div class="span12">
+			<div class="row">
+
+				<% @recipe.each do |r| %>
+
+				<div class="span 1 offset 1">
+					<div>
+						<%= r.id%>
+
+						<%= link_to r.name, details_path(r.id) %>
+
+						<br>
+						note: <%= r.grade%>/5
+						<br>
+						prix :<%= r.price%>€
+					</div>
+					<div class="recipePrep">
+						Temps de préparation : <%= r.preparation%> minutes
+						<br>
+						Temps de cuisson : <%= r.bakingTime%> minutes
+					</div>
+				</div>
+				<% end %>
+			</div>
+		</div>
+
+	</div>
+
+</div>

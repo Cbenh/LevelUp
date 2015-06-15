@@ -1,0 +1,39 @@
+<div class="container-stillalive">
+	<div class="sa-box">
+		<div class="title">
+			<h2>StillAlive</h2>
+			<hr>
+			<h3>Contacts suivis</h3>
+			<p>
+				Pour des raisons de confidentialité, vous pouvez selectionner des contacts à suivre uniquement depuis votre mobile.
+				De cette façon, nous ne conservons pas votre repertoire sur nos serveurs. Pensez vous que cette précaution est importante,
+				ou souhaiteriez vous pouvoir configurer StillAlive entièrement depuis notre site internet ? levelup.dev@gmail.com
+			</p>
+
+			<% if @contacts == nil %>
+			Vous n'avez pas de contact suivis
+			<% else %>
+			<table class="table">
+				<tr>
+					<th><%= sort_link "Nom", :name %></th>
+					<th><%= sort_link "Jours sans nouvelles", :last_interaction %></th>
+					<th><%= sort_link "Prochain contact", :next_interaction %></th>
+					<th></th>
+				</tr>
+				<% @contacts.each do |c| %>
+				<tr>
+					<td><%= link_to c.name, edit_contact_path(c) %></td>
+					<td><%= c.days_since_last_interaction %> / <%= pluralize c.days_interval, "jour" %></td>
+					<td><%= l c.next_interaction, format: :long %> </td>
+					<td> <%= link_to "Supprimer", contact_path(c.id), method: :delete, class: :btn,
+					confirm: "Etes vous sur de vouloir supprimer ce contact ?" %> </td>
+
+					<td> <%= button_to "Réinitialiser", reset_contacts_path(c.id), class: :btn,
+					confirm: "Etes vous sur de vouloir remrettre le contact à 0 ?" %> </td>
+				</tr>
+				<% end %>
+			</table>
+			<% end %>
+		</div>
+	</div>
+</div>

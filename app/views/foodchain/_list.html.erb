@@ -1,0 +1,11 @@
+<div style="float: left;">
+	<h1>Ma liste</h1>
+
+	<% @products.each do |p| %>
+	<%= p.name %>/
+	<%= p.comment %>/
+	<%= p.quantity %>
+	<%= p.unit %>
+	<br>
+	<% end %>
+</div>

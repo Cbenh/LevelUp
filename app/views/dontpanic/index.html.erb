@@ -1,0 +1,62 @@
+<div class="container-dontpanic">
+	<div class="dp-box">
+		<div class="title">
+			<h2>DontPanic</h2>
+			<hr>
+		</div>
+		<div class="link-tuto">
+			<%= link_to "Recherche", dontpanic_search_path, class: :btn %>
+		</div>
+				<h1 class="title-categorie">Mes tutos</h1>
+		<% if @sorts %>
+		<div class="tri-index">
+			<div class="span10">
+				Tri :
+				<% @sorts.each do |text, param| %>
+				<%= sort_link text, param %>
+				<% end %>
+			</div>
+		</div>
+		<% end %>
+		<% @tutorials.each do |t| %>
+		<%= link_to dontpanic_tutorial_path(t.id), class: "row tutorial-result" do %>
+		<%= image_tag t.image, width: 150, class: "span2 tutorial-result-image" %>
+		<div class="span8 tutorial-result-content">
+			<h3 class="tutorial-result-title"><%= t.title.presence || "(Sans Titre)" %></h3>
+			<p class="tutorial-result-description">
+				<%= t.description %>
+			</p>
+		</div>
+		<% end %>
+		<div class="row">
+			<div class="span2 offset10">
+				<%= link_to "Supprimer", "#deleteModal", data: { toggle: :modal, title: t.title, id: t.id }, class: :btn %>
+			</div>
+		</div>
+		<% end %>
+	</div>
+
+	<div class="modal hide" id="deleteModal">
+		<div class="modal-header">
+			<h3>Suppression</h3>
+		</div>
+		<div class="modal-body">
+			<p>
+				Adieu « <span data-value="title"></span> » ?
+			</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn" data-dismiss="modal">Nope</a>
+			<%= link_to "Ouep", "#", data: { url: dontpanic_download_path("--id--") }, method: :delete, class: "btn btn-primary" %>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(document).on('click', '[href="#deleteModal"]', function(e) {
+		var $link = $(e.target), $modal = $('#deleteModal'), linkData = $link.data(), $modalLink = $modal.find('[data-url]')
+
+		$modal.find('[data-value="title"]').html(linkData['title'])
+		$modalLink.attr('href', $modalLink.data('url').replace('--id--', linkData['id']))
+	})
+</script>

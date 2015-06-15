@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <%= csrf_meta_tags %>
+    <title>LevelUp</title>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= content_for :head %>
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
+
+    <div class="container">
+      <% if flash[:notice] %>
+        <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="alert alert-error">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+    </div>
+
+    <% if current_user.logged_in? %>
+      <%= render 'layouts/app_link' %>
+    <% end %>
+
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+  </body>
+</html>

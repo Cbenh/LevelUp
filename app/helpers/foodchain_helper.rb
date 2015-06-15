@@ -1,0 +1,2 @@
+module FoodchainHelper
+end
